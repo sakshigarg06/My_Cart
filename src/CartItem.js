@@ -6,13 +6,25 @@ class CartItem extends React.Component {
         this.state = {
             price: 999,
             title: 'Phone',
-            qty: 3,
+            qty: 1,
             img: ''
         }
     }
 
     incQty = () => {
-        
+        this.setState((prev) => {
+            return {
+                qty: prev.qty + 1
+            }
+        });
+    }
+
+    decQty = () => {
+        this.setState((prev) => {
+            return {
+                qty: prev.qty - 1
+            }
+        });
     }
 
     render() {
@@ -37,6 +49,7 @@ class CartItem extends React.Component {
                             alt='decrease'
                             className='action-icons'
                             src='https://cdn-icons-png.flaticon.com/512/992/992683.png'
+                            onClick={this.decQty}
                         />
                         <img 
                             alt='delete'
