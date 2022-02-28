@@ -20,6 +20,12 @@ class CartItem extends React.Component {
     }
 
     decQty = () => {
+        const {qty} = this.state;
+
+        if(qty === 0) {
+            return;
+        }
+        
         this.setState((prev) => {
             return {
                 qty: prev.qty - 1
